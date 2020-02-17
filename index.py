@@ -18,12 +18,13 @@
 # #  Run through the text word for word and count each one:
 
 
-punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
+punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 
 with open('seneca_falls.txt', 'r') as f:
     data = f.read()
@@ -35,15 +36,21 @@ for character in data:
 
 my_string = no_punctuation.lower()
 
-# print (my_string) //This worked
-
-# print (my_string.split()) //This worked
-
 my_string = [word for word in my_string.split() if word not in STOP_WORDS]
 
-print (my_string) #This worked
+def word_count(my_string):
+    counts = dict()
+    
+    for word in my_string:
+        if word in counts:
+            counts[word] += 1
+        else: 
+            counts[word] = 1
 
-#WOOP WOOP now I'm down here!
+    return counts
+
+print ( word_count(my_string)) 
+# And all of this worked!
 
 
 
