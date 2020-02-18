@@ -16,9 +16,9 @@ def print_word_freq(file):
         if character not in punctuations:
             no_punctuation = no_punctuation + character
 
-    my_string = no_punctuation.lower()
+    my_string = no_punctuation.lower() #This is a string
 
-    my_string = [word for word in my_string.split() if word not in STOP_WORDS]
+    my_string = [word for word in my_string.split() if word not in STOP_WORDS]  #This becomes a list
 
     def word_count(my_string):
         counts = {}
@@ -31,12 +31,12 @@ def print_word_freq(file):
             
         return counts
 
-    new_string = word_count(my_string)
+    new_string = word_count(my_string) #This is now a dict
 
-    sorted_string = sorted(new_string.items(), key = 
-            lambda kv: (kv[1], kv[0]))
+    lst = new_string.items()
 
-    print (sorted_string)
+    for key, value in lst:
+        print ("Sorted by value: ", sorted(lst, key = lambda x : x[1]))
 
 
 
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 #     format(counts)
 
 
-
+# I think this is the closest I've gotten.
 #new_string = (word_count(my_string))
 
     # for key, value in new_string.items():
@@ -188,3 +188,7 @@ if __name__ == "__main__":
 
     # for key, value in fully_sorted_string.items():
     #      print (key, ' : ', value)
+
+
+
+    #new_string = sorted(new_string.items(), key = lambda kv: (kv[1], kv[0]))
